@@ -7,8 +7,9 @@ export default function Show(props) {
 
     return (
         <div>
-            <h1>{aTeam.team}</h1>
-            <h2>{aTeam.division}</h2>
+            <h1>{aTeam.Team}</h1>
+            <h2>{aTeam.League}</h2>
+            <h2>{aTeam.Division}</h2>
             <Link to={"/"}>
                 <button>Back to Home</button>
             </Link>

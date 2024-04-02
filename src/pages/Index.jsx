@@ -2,7 +2,7 @@
 // Import our Team Component
 // import Batter from "../components/Batter"
 import Team from "../components/Team"
-import { useLoaderData } from "react-router-dom"
+import { Form, useLoaderData } from "react-router-dom"
 
 
 export default function Index(props) {
@@ -10,7 +10,13 @@ export default function Index(props) {
 
     return (
         <>
-            <h1>Index</h1>
+            <h1>MLB Teams</h1>
+            <Form action="/create" method="post">
+
+            </Form>
+
+
+
             <hr/>
             { allTeams.map((team, i) => <Team team={team} key={i}/>)}
         </>
