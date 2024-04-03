@@ -4,6 +4,7 @@ import App from "./App"
 import Index from "./pages/Index"
 import Show from "./pages/Show"
 import { indexTeamLoader, showTeamLoader, indexBatterLoader, showBatterLoader } from "./loaders";
+import { createAction, updateAction, deleteAction } from "./actions"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -12,9 +13,9 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path='' element={<Index/>} loader={ indexBatterLoader }/>
             <Route path='teams/:id' element={<Show/>} loader={ showTeamLoader }/>
             <Route path='batters/:id' element={<Show/>} loader={ showBatterLoader }/>
-            <Route/>
-            <Route/>
-            <Route/>
+            <Route path='create' action={ createAction } />
+            <Route path='update/:id' action={ updateAction }/>
+            <Route path='delete/:id' action={ deleteAction }/>
         </Route>
     </>
 ))
