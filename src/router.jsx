@@ -3,14 +3,14 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "./App"
 import Index from "./pages/Index"
 import Show from "./pages/Show"
-import { indexTeamLoader, showTeamLoader, indexBatterLoader, showBatterLoader } from "./loaders";
+import { indexTeamLoader, showTeamLoader, showBatterLoader } from "./loaders"; // indexBatterLoader, 
 import { createAction, updateAction, deleteAction } from "./actions"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
         <Route path="/" element={<App/>}>
             <Route path='' element={<Index/>} loader={ indexTeamLoader }/>
-            <Route path='' element={<Index/>} loader={ indexBatterLoader }/>
+            {/* <Route path='' element={<Index/>} loader={ indexBatterLoader }/> */}
             <Route path='teams/:id' element={<Show/>} loader={ showTeamLoader }/>
             <Route path='batters/:id' element={<Show/>} loader={ showBatterLoader }/>
             <Route path='create' action={ createAction } />

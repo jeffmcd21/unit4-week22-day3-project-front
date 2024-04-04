@@ -3,14 +3,57 @@
 // import Batter from "../components/Batter"
 import Team from "../components/Team"
 import { Form, useLoaderData } from "react-router-dom"
+import { useState } from "react"
 
 
 export default function Index() {
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('')
     const allTeams = useLoaderData()
+    const filteredTeams = allTeams.filter((team) =>
+        team.Team.toLowerCase().includes(searchTerm.toLowerCase()))
+    const [currentPage, setCurrentPage] = useState(1)
+    const itemsPerPage = 5;
+    
+    const getPageCount = () => {
+        return Math.ceil(allTeams.length / itemsPerPage)
+    }
+
+    const indexOfLastTeam = currentPage * itemsPerPage
+    const indexOfFirstTeam = indexOfLastTeam - itemsPerPage
+    // const currentTeams = filteredTeams.slice(indexOfFirstTeam, indexOfLastTeam)
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+    
+    const renderPaginationButtons = () => {
+        const pageCount = getPageCount()
+        const buttons = []
+
+        for (let i = 1; i <= pageCount; i++) {
+            buttons.push(
+                <button key={i} onClick={() => handlePageChange(i)}>
+                    {i}
+                </button>
+            )
+        }
+        return buttons
+    }
+
+    const searchedAndSlicedTeams = filteredTeams
+        .filter((team) => team.Team.toLowerCase().includes(searchTerm.toLowerCase())).slice(indexOfFirstTeam, indexOfLastTeam)
+
 
     return (
         <>
 
+        <h1>The Home of Baseball</h1>
+
+        <button onClick={() => setIsFormVisible(!isFormVisible)}>
+            {isFormVisible ? 'Hide Form' : 'Show Form'}
+        </button>
+
+        <div className={isFormVisible ? '': 'hidden'}>
             <Form action="/create" method="post">
                 <label htmlFor="Sport">
                     <input type="text" name="Sport" id="Sport" placeholder="Sport" defaultValue={"Major League Baseball"}/>
@@ -55,10 +98,20 @@ export default function Index() {
                 <button>Create A Team</button>
 
             </Form>
+        </div>
 
             <h1>MLB Teams</h1>
             <hr/>
-            { allTeams.map((team, i) => <Team team={team} key={i}/>)}
+            <input
+                type="text"
+                placeholder="Search Teams..."
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+            />
+            <br />
+            { searchedAndSlicedTeams.map((team, i) => (
+                <Team team={team} key={i}/>))}
+            <div>{renderPaginationButtons()}</div>
         </>
     )
 }
