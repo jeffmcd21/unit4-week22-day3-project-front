@@ -1,8 +1,7 @@
 
 // Import our Team Component
 import { Link, useLoaderData, Form } from "react-router-dom"
-export default function Show(props) {
-
+export default function Show() {
     const aTeam = useLoaderData()
     // const id = aTeam?.url,split("/")[4]
 

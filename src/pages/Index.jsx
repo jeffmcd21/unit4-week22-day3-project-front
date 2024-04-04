@@ -32,7 +32,7 @@ export default function Index() {
 
         for (let i = 1; i <= pageCount; i++) {
             buttons.push(
-                <button key={i} onClick={() => handlePageChange(i)}>
+                <button class="button button-outline" key={i} onClick={() => handlePageChange(i)}>
                     {i}
                 </button>
             )
@@ -47,9 +47,7 @@ export default function Index() {
     return (
         <>
 
-        <h1>The Home of Baseball</h1>
-
-        <button onClick={() => setIsFormVisible(!isFormVisible)}>
+        <button class="button button-outline" onClick={() => setIsFormVisible(!isFormVisible)}>
             {isFormVisible ? 'Hide Form' : 'Show Form'}
         </button>
 
