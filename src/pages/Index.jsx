@@ -54,11 +54,11 @@ export default function Index() {
         <div className={isFormVisible ? '': 'hidden'}>
             <Form action="/create" method="post">
                 <label htmlFor="Sport">
-                    <input type="text" name="Sport" id="Sport" placeholder="Sport" defaultValue={"Major League Baseball"}/>
+                    <input type="text" name="Sport" id="Sport" placeholder="Sport" />
                 </label>
 
                 <label htmlFor="Sport_Short_Description">
-                    <input type="text" name="Sport_Short_Description" id="Sport_Short_Description" placeholder="Sport_Short_Description" defaultValue={"MLB"}/>
+                    <input type="text" name="Sport_Short_Description" id="Sport_Short_Description" placeholder="Sport_Short_Description" />
                 </label>
 
                 <label htmlFor="Team">
@@ -93,13 +93,17 @@ export default function Index() {
                     <input type="number" name="Location_Code" id="Location_Code" placeholder="Location_Code" />
                 </label>
 
+                <label htmlFor="Image">
+                    <input type="text" name="Image" id="Image" placeholder="Image" />
+                </label>
+
                 <button>Create A Team</button>
 
             </Form>
         </div>
 
-            <h1>MLB Teams</h1>
             <hr/>
+            <h1>Teams</h1>
             <input
                 type="text"
                 placeholder="Search Teams..."
@@ -110,6 +114,17 @@ export default function Index() {
             { searchedAndSlicedTeams.map((team, i) => (
                 <Team team={team} key={i}/>))}
             <div>{renderPaginationButtons()}</div>
+
+            <br />
+            <h2>- Coming Soon -</h2>
+            <hr/>
+            <h3>Minor League Teams</h3>
+            {/* <hr/> */}
+            <h3>Batter Stats</h3>
+            {/* <hr/> */}
+            <h3>Pitcher Stats</h3>
+
+
         </>
     )
 }

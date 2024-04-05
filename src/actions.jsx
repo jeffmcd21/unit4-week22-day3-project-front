@@ -20,6 +20,7 @@ export const createAction = async ({ request }) => {
         Team_Location: formData.get("Team_Location"),
         Team_Name: formData.get("Team_Name"),
         Location_Code: formData.get("Location_Code"),
+        Image: formData.get("Image"),
     }
 
     await fetch(`${URL}Team_Info/`, {
@@ -47,6 +48,7 @@ export const updateAction = async ({request, params}) => {
         Team_Location: formData.get("Team_Location"),
         Team_Name: formData.get("Team_Name"),
         Location_Code: formData.get("Location_Code"),
+        Image: formData.get("Image"),
     }
     await fetch(`${URL}Team_Info/${id}/`, {
         method: "PUT",
