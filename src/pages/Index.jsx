@@ -2,7 +2,7 @@
 // Import our Team Component
 // import Batter from "../components/Batter"
 import Team from "../components/Team"
-import { Form, useLoaderData } from "react-router-dom"
+import { Form, useLoaderData, Link } from "react-router-dom"
 import { useState } from "react"
 
 
@@ -46,7 +46,22 @@ export default function Index() {
 
     return (
         <>
+        
+        <h1>Search Teams...</h1>
+            <input
+                type="text"
+                placeholder="Search Teams..."
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                />
+            <br/>
+            { searchedAndSlicedTeams.map((team, i) => (
+                <Team team={team} key={i}/>))}
+            <div>{renderPaginationButtons()}</div>
+        <hr/>
 
+
+        <h3>Add a Team</h3>
         <button class="button button-outline" onClick={() => setIsFormVisible(!isFormVisible)}>
             {isFormVisible ? 'Hide Form' : 'Show Form'}
         </button>
@@ -102,28 +117,21 @@ export default function Index() {
             </Form>
         </div>
 
-            <hr/>
-            <h1>Teams</h1>
-            <input
-                type="text"
-                placeholder="Search Teams..."
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-            />
-            <br />
-            { searchedAndSlicedTeams.map((team, i) => (
-                <Team team={team} key={i}/>))}
-            <div>{renderPaginationButtons()}</div>
 
-            <br />
-            <h2>- Coming Soon -</h2>
+            <br/>
             <hr/>
-            <h3>Minor League Teams</h3>
+            <h1>-- Coming Soon --</h1>
+            <div>
+                <Link to='info/' className="info-link">MiLB Teams Page</Link>
+            </div>
             {/* <hr/> */}
-            <h3>Batter Stats</h3>
+            <div>
+                <Link to='batters/' className="batter-link">Batter Stats Page</Link>
+            </div>
             {/* <hr/> */}
-            <h3>Pitcher Stats</h3>
-
+            <div>
+                <Link to='pitchers/' className="pitcher-link">Pitcher Stats Page</Link>
+            </div>
 
         </>
     )

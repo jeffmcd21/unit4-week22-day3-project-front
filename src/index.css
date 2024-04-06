@@ -97,3 +97,11 @@ body {
   background-color: transparent;
   color: black;
 }
+
+.batter-fields:hover {
+  color: lightskyblue;
+}
+
+.minor-league-table:hover {
+  color: lightskyblue;
+}

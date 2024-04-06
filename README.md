@@ -4,8 +4,8 @@
 
 - **Jeff McDonald** (2024-03-27)
 
-- **App Name:** MLB Stats
-- **Description:** Historical Statisicts on Major League Baseball
+- **App Name:** A Field of Baseball
+- **Description:** Historical Statisicts and Information on All Leagues of Baseball
 
 - **Github Backend:** https://github.com/jeffmcd21/unit4-week22-day3-project-backend
 - **Deployed Backend:** https://unit4-week22-day3-project-backend.onrender.com

@@ -127,6 +127,24 @@ export default function Show() {
             <Link to={"/"}>
                 <button className="button-black">Back to Home</button>
             </Link>
+
+            <br/>
+            <hr/>
+            <h1>-- Coming Soon --</h1>
+            <div>
+                <h4>Schedules</h4>
+                {/* <Link to='info/' className="info-link">MiLB Teams Page</Link> */}
+            </div>
+            {/* <hr/> */}
+            <div>
+                <h4>Rosters</h4>
+                {/* <Link to='batters/' className="batter-link">Batter Stats Page</Link> */}
+            </div>
+            {/* <hr/> */}
+            <div>
+            <h4>Standings</h4>
+                {/* <Link to='pitchers/' className="pitcher-link">Pitcher Stats Page</Link> */}
+            </div>
         </div>
     )
 }
